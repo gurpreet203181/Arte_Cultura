@@ -7,7 +7,7 @@
     <ion-buttons slot="end">
       <ion-toggle (ionChange)="onClick($event)" slot="end"></ion-toggle>
     </ion-buttons>
-    <ion-title  >Arte E Cultura </ion-title>
+    <ion-title  >Arte E Cultura</ion-title>
     
   </ion-toolbar>
 </ion-header>
@@ -33,7 +33,7 @@
       </ion-fab-button>
     </ion-fab-list>
   </ion-fab>
-  <div class="image-container">
+  <div class="image-container" >
     
     <ion-slides #introSlides [options]="sliderConfig" (ionSlideDidChange)="slideDidChange()">
       <ion-slide [routerLink]="['/detail',item.name,item.image,item.description]" *ngFor="let item of slides">
