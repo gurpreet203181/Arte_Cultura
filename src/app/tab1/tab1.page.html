@@ -1,17 +1,73 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
+<ion-header class="ion-no-border">
+
+  <ion-toolbar class="ion-margin-top" color="secondary">
+    <ion-buttons slot="start">
+      <ion-icon class="ion-margin-start" size="large" color="light" name="menu-outline"></ion-icon>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-toggle (ionChange)="onClick($event)" slot="end"></ion-toggle>
+    </ion-buttons>
+    <ion-title  >Arte E Cultura</ion-title>
+    
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content scrollX=false>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <ion-fab horizontal="end" vertical="bottom" slot="fixed">
+    <ion-fab-button color="dark">
+      <ion-icon md="caret-up" ios="chevron-up-circle-outline"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button color="light">
+        <ion-icon name="logo-facebook"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="light">
+        <ion-icon name="logo-twitter"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="light">
+        <ion-icon name="logo-vimeo"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="light">
+        <ion-icon name="logo-google"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+  <div class="image-container">
+    
+    <ion-slides #introSlides [options]="sliderConfig" (ionSlideDidChange)="slideDidChange()">
+      <ion-slide [routerLink]="['/detail',item.name,item.image,item.description]" *ngFor="let item of slides">
+        <ion-img style="max-height: 250px;" src="{{item.image}}" (ionImgWillLoad)="imgLoaded=false" (ionImgDidLoad)="imgLoaded=true"></ion-img>
+        
+      </ion-slide>
+    </ion-slides>
+  
+  </div >
+ 
+  
+  <div class="search ion-padding ion-margin">
+    <h1 color="danger">Esplora</h1>
+    <ion-searchbar mode="ios" placeholder="cerca"></ion-searchbar>
+  </div>
+  
+
+  <ion-card [routerLink]="['/detail',item.name,item.image,item.description]" *ngFor="let item of gallery" >
+    <ion-item>
+      <ion-avatar slot="start">
+        <img src="/assets/img/img1.jpg">
+      </ion-avatar>
+      <ion-label >
+        <h3>Gurpreet Singh</h3>
+        <p>Mar 25, 2020</p>
+      </ion-label>
+    </ion-item>
+  
+    <img src="{{item.image}}" alt="ion">
+    <ion-card-header>
+      <ion-card-title >{{item.name}}</ion-card-title>
+    </ion-card-header>
+   
+  
+    
+  </ion-card>
 </ion-content>

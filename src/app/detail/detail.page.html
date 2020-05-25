@@ -1,0 +1,77 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar class="ion-margin-top" color="secondary">
+    <ion-buttons slot="start">
+      <ion-icon class="ion-margin-start" size="large" color="light" name="arrow-back" routerLink="/home"></ion-icon>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-icon class="ion-margin-end" size="large" color="light" name="bookmark"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="elipse">
+    <h1>Dettagli</h1>
+  </div>
+  <ion-grid class="data ion-margin-start ion-margin-end">
+    <ion-row>
+      <ion-col>
+        <p>Review</p>
+      </ion-col>
+      <ion-col>
+        <p>Family</p>
+      </ion-col>
+      <ion-col>
+        <p>Size</p>
+      </ion-col>
+      <ion-col>
+        <p>Category</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <div class="rate">
+          <ion-icon name="star"></ion-icon>
+          <ion-icon name="star"></ion-icon>
+          <ion-icon name="star"></ion-icon>
+          <ion-icon name="star"></ion-icon>
+          <ion-icon name="star-half"></ion-icon>
+        </div>
+      </ion-col>
+      <ion-col>
+        <p class="color-primary"></p>
+      </ion-col>
+      <ion-col>
+        <p class="color-primary"></p>
+      </ion-col>
+      <ion-col>
+        <p class="color-primary"></p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <div class="square">
+    <div class="ribbon">
+      <div class="price">
+        <p>{{ passedId }}</p>
+      </div>
+    </div>
+    <ion-img src={{passedImg}}></ion-img>
+  </div>
+  <div class="description">
+    <h1>Dettagli</h1>
+    <p>{{ passedDef }}</p>
+  </div>
+</ion-content>
+<ion-footer (click)="openUrl()">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="9" class="buy">
+        <p>VISITA IL SITO 
+        </p>
+      </ion-col>
+      <ion-col class="favourite" size="3">
+        <ion-icon name="logo-web-component"></ion-icon>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>
